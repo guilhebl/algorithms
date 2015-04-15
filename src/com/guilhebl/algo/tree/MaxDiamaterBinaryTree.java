@@ -14,7 +14,7 @@ public class MaxDiamaterBinaryTree {
 		sol.solveBinaryTreeDiameter();		
 	}
 
-/* 	    binary tree
+/* Test  binary tree  1 - unbalanced
     		  R
   			/   \
 			1    1
@@ -78,7 +78,7 @@ public class MaxDiamaterBinaryTree {
 		System.out.println(findMaxDiameterOfBinaryTree(root));
 	}
 
-/*   	balanced binary tree
+/* Test binary tree 2 - balanced binary tree
 		  		  R
 				/    \
 			   1      1

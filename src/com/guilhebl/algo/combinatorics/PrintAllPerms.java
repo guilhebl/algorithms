@@ -1,7 +1,5 @@
 package com.guilhebl.algo.combinatorics;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Print all permutations of string
