@@ -1,4 +1,4 @@
-package com.guilhebl.algo.graph.tree;
+package com.guilhebl.algo.tree;
 
 /**
  * Find max diamater of binary tree

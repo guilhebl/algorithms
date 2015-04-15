@@ -1,4 +1,4 @@
-package com.guilhebl.algo.graph.tree;
+package com.guilhebl.algo.tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;
