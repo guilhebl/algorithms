@@ -1,5 +1,8 @@
 package com.guilhebl.algo.combinatorics;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * Print all permutations of string
@@ -23,9 +26,36 @@ cab
 public class PrintAllPerms {
 
 	public static void main(String[] args) {
-		solvePrintAllPerms();
+		  Set<String> stringSet = new HashSet<String>();
+		  getPermutationOfString("tree".toCharArray(), 0, stringSet);
+		  printSets(stringSet);
 	}
 
+	public static void getPermutationOfString(char[] a, int i, Set<String> stringSet) {
+		if (i == a.length) {
+			stringSet.add(new String(a));
+		} else if (i < a.length) {
+			for (int j = i; j < a.length; j++) {
+				swap(a, i, j);
+				getPermutationOfString(a, i + 1, stringSet);
+				swap(a, i, j);
+			}
+		}
+	}
+
+	public static void swap(char[] a, int i, int j) {
+		char temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
+	
+	public static void printSets(Set<String> strs) {
+		for (String string : strs) {
+			System.out.println(string);
+		}
+	}
+		
+	
 	public static void solvePrintAllPerms() {
 		String s = "abc";
 		printAllPerms(s.toCharArray(), 0);
@@ -44,9 +74,4 @@ public class PrintAllPerms {
 		}
 	}
 
-	public static void swap(char[] a, int i, int j) {
-		char temp = a[i];
-		a[i] = a[j];
-		a[j] = temp;
-	}
 }
