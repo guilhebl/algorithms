@@ -3,15 +3,6 @@ package com.guilhebl.algo.combinatorics;
 /**
  * 
  * http://community.topcoder.com/stat?c=problem_statement&pm=1669
- * 
-"ABCD"
-"AXCY"
-{ "SBTD", "QRCD" }
-Returns: { 0 }
-The example above.
-
-
- * @author root
  *
  */
 public class PaternityTest {

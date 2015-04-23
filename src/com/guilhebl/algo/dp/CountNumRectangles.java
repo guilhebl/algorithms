@@ -1,5 +1,19 @@
 package com.guilhebl.algo.dp;
 
+/**
+ * TopCoder problem count num rectangles.
+ * 
+ * Count num. of rectangles inside a WxH Matrix.
+ * 
+ * Rectangles are different than squares as their Width and Height are not equal. 
+ * 
+ * Formula to count rectangles in a NxM matrix:
+ * 
+ * //(width^2 + width) * (length^2 + length) / 4 - formula
+ * 
+ * @author root
+ *
+ */
 public class CountNumRectangles {
 
 	public static void main(String[] args) {
