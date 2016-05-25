@@ -45,8 +45,7 @@ public class FindLargestSubtreeWithDuplicates {
 			max = Math.max(leftPath.length(), max);
 		}		
 		maxSubtree = Math.max(max, maxSubtree);
-		
-		return Math.max(max, maxSubtree);
+		return maxSubtree;
 	}
 
 	
@@ -62,4 +61,22 @@ class Node {
 		this.left = left;
 		this.right = right;
 	}	
+}
+
+class D extends A {}
+
+abstract class A extends B {
+	int y;
+	int x;
+	
+	public A() {
+		// TODO Auto-generated constructor stub
+	}
+}
+ class B {
+	int x;
+	
+	public B() {
+		// TODO Auto-generated constructor stub
+	}
 }
