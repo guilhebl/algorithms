@@ -57,31 +57,6 @@ public class MergeStringsPreserveOrderCombination {
 		arr[j] = temp;
 	}
 
-	public static void mergeB(String a, String b) {
-		Set<String> ans = new HashSet<>();
-		printCombos("hey", "sam", "", ans);
-		for (String s : ans) {
-			System.out.println(s);		
-		}
-	}
-	
-	public static void printCombos(String s1, String s2, String cur, Set<String> ans) {
-		if (s1 == "" && s2 == "") {
-			ans.add(cur);
-			return;
-		}
-		if (s1 == "") {
-			ans.add(cur + s2);
-			return;
-		}
-		if (s2 == "") {
-			ans.add(cur + s1);
-			return;
-		}
-		for (int i = 0; i <= s2.length(); i++) {
-			String toAdd = s2.substring(0, i);
-			printCombos(s1.substring(1, s1.length()-1), s2.substring(i, s2.length()-i), cur + toAdd + s1.charAt(0), ans);
-		}
-	}
+
 
 }
