@@ -90,12 +90,6 @@ public class MaxProfitNoBuyNextDay {
 	}
 	
 	public static int maxProfit(int[] prices) {
-		int n = prices.length;
-		  int count = 0; // count of solution pairs
-			 
-		    // solution vector
-		    Interval[] sol = new Interval[n/2 + 1];
-		    
         int sell = 0, prev_sell = 0;
         int buy = Integer.MIN_VALUE, prev_buy;
         for (int price : prices) {
