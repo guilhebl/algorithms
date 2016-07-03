@@ -25,7 +25,6 @@ public class BallRemoval {
 		int r = label.length()-2;		
 		boolean[] cl = new boolean[label.length()];
 		Arrays.fill(cl, true);		
-		//StringBuilder sb = new StringBuilder(label);
 		char[] c = label.toCharArray();
 			
 		canLeave(l, r, c, cl);
