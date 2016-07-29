@@ -1,7 +1,9 @@
 package com.guilhebl.algo.graph;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * https://leetcode.com/problems/minimum-height-trees/
@@ -31,41 +33,39 @@ public class MinHeightTrees {
 			r.add(0);
 			return r;
 		}
-		if (edges.length == 1) {
-			r.add(edges[0][0]);
-			r.add(edges[0][1]);
-			return r;
+		
+		List<Set<Integer>> nodeEdges = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			nodeEdges.add(new HashSet<>());
+		}
+		for (int i = 0; i < edges.length; i++) {
+			int n1 = edges[i][0];
+			int n2 = edges[i][1];
+			nodeEdges.get(n1).add(n2);
+			nodeEdges.get(n2).add(n1);
 		}
 		
-		int[] nodeEdgeCount = new int[n];
-		for (int i = 0; i < edges.length; i++) {
-			nodeEdgeCount[edges[i][0]] = nodeEdgeCount[edges[i][0]] + 1;
-			nodeEdgeCount[edges[i][1]] = nodeEdgeCount[edges[i][1]] + 1;
-		}
-		int max1 = -1;
-		int max2 = -1;
-		int used1 = -1;
-		int used2 = -1;
-		int edgeCount = 0;
-		for (int i = 0; i < nodeEdgeCount.length; i++) {
-			edgeCount = nodeEdgeCount[i];
-			if (edgeCount > 1 && edgeCount > max1 && used1 != i && used2 != i) {
-				max1 = nodeEdgeCount[i];
-				used1 = i;
+		List<Integer> leaves = new ArrayList<>();
+		for (int i = 0; i < nodeEdges.size(); i++) {
+			if (nodeEdges.get(i).size() == 1) {
+				leaves.add(i);
 			}
-			if (edgeCount > 1 && edgeCount > max2 && used1 != i && used2 != i) {
-				max2 = nodeEdgeCount[i];
-				used2 = i;
-			}			
 		}
-
-		if (used1 != -1) {
-			r.add(used1);	
+		
+		int count = edges.length;
+		while (count > 2 && !leaves.isEmpty()) {
+			count -= leaves.size();
+			List<Integer> newLeaves = new ArrayList<>();
+			for (Integer leaf : leaves) {
+				int node = nodeEdges.get(leaf).iterator().next();
+				nodeEdges.get(node).remove(leaf);
+				if (nodeEdges.get(node).size() == 1){
+					newLeaves.add(node);
+				}
+			}
+			leaves = newLeaves;
 		}
-		if (used2 != -1) {
-			r.add(used2);
-		}
-
+		r = leaves;
 		return r;
 	}
 }

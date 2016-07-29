@@ -24,7 +24,7 @@ public class RemoveDuplicatesLinkedList {
         ListNode next = head;
         curr.next = next;
         
-        while(next != null) {        	
+        while(next	 != null) {        	
         	while(next.next != null && next.val == next.next.val) {
         		next = next.next;
         	}
