@@ -7,10 +7,8 @@ public class MaximizeProfitMaxKTransactions {
 	}
 	
 	public static void solveMaximizeProfitMaxKTransactions() {	
-		int[] prices = {2, 7, 3, 9, 8, 7, 9, 7, 1, 9};
 		int price[] = {100, 180, 260, 310, 40, 535, 695};
-		int k = 1;
-		System.out.println(maximizeProfit(price, 1));
+		System.out.println(maximizeProfit(price, 3));
 	}
 	
 	private static int maximizeProfit(int[] v, int k1)
