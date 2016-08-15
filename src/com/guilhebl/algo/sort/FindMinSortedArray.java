@@ -1,4 +1,4 @@
-package com.guilhebl.algo.arrays;
+package com.guilhebl.algo.sort;
 
 /**
  * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/

@@ -1,4 +1,4 @@
-package com.guilhebl.algo.arrays;
+package com.guilhebl.algo.sort;
 
 import java.util.ArrayList;
 import java.util.Comparator;
