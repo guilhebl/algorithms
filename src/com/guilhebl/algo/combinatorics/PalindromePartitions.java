@@ -11,7 +11,9 @@ import java.util.List;
 public class PalindromePartitions {
 
 	public static void main(String[] args) {
-		printList(partition("aab"));
+		//printList(partition("aab"));
+		
+		System.out.println(isPalindrome("aA"));
 	}
 	
 	public static void printList(List<List<String>> strs) {
@@ -51,6 +53,28 @@ public class PalindromePartitions {
 			}
 			l++;
 			h--;
+		}
+		return true;
+	}
+	
+	public static boolean isPalindrome(String s) {
+		if (s == null) return false;
+		String[] words = s.split("\\W");
+		if (words == null || words.length == 0) return true;
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i = 0; i < words.length; i++) {
+			String st = words[i].trim().toLowerCase();
+			
+			if (!st.equals("")) {
+				sb.append(st);
+			}
+		}
+		
+		s = sb.toString();
+		for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+			if (s.charAt(i) != s.charAt(j))
+				return false;
 		}
 		return true;
 	}

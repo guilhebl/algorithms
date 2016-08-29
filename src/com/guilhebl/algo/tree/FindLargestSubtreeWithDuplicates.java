@@ -62,21 +62,3 @@ class Node {
 		this.right = right;
 	}	
 }
-
-class D extends A {}
-
-abstract class A extends B {
-	int y;
-	int x;
-	
-	public A() {
-		// TODO Auto-generated constructor stub
-	}
-}
- class B {
-	int x;
-	
-	public B() {
-		// TODO Auto-generated constructor stub
-	}
-}

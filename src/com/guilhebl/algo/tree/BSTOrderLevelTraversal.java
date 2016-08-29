@@ -9,20 +9,20 @@ import java.util.List;
  *
  */
 public class BSTOrderLevelTraversal {
-	   public List<List<Integer>> levelOrder(TreeNodeCS root) {
+	   public List<List<Integer>> levelOrder(TreeNode root) {
 	        List<List<Integer>> r = new ArrayList<>();
 	        if (root == null) {
 	            return r;
 	        }
 	        
-	        List<TreeNodeCS> parents = new ArrayList<>();
-	        List<TreeNodeCS> current  = new ArrayList<>();
+	        List<TreeNode> parents = new ArrayList<>();
+	        List<TreeNode> current  = new ArrayList<>();
 	        parents.add(root);
 	        
 	        while(!parents.isEmpty()) {
 	            r.add(getIntList(parents));
 	            current = new ArrayList<>();
-	            for(TreeNodeCS t : parents) {    
+	            for(TreeNode t : parents) {    
 	                if (t.left != null) {
 	                    current.add(t.left);  
 	                }
@@ -41,21 +41,14 @@ public class BSTOrderLevelTraversal {
 	        return r2;
 	    }
 	    
-	    private List<Integer> getIntList(List<TreeNodeCS> list) {
+	    private List<Integer> getIntList(List<TreeNode> list) {
 	        if (list == null) {
 	            return null;
 	        }
 	        List<Integer> r = new ArrayList<>();
-	        for(TreeNodeCS t : list) {
+	        for(TreeNode t : list) {
 	            r.add(t.val);
 	        }
 	        return r;
 	    }
 }
-
-class TreeNode {
-     int val;
-     TreeNodeCS left;
-     TreeNodeCS right;
-     TreeNode(int x) { val = x; }
- }

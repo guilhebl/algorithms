@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class BSTPaths {
 	 
-	 public List<String> binaryTreePaths(TreeNodeBSTSearch root) {
+	 public List<String> binaryTreePaths(TreeNode root) {
 	        List<String> r = new ArrayList<>();
 	        if (root == null) {
 	            return r;
@@ -23,7 +23,7 @@ public class BSTPaths {
 	        return r;
 	    }
 	    
-	    public void findPaths(TreeNodeBSTSearch root, List<StringBuilder> pathList, StringBuilder currPath) {
+	    public void findPaths(TreeNode root, List<StringBuilder> pathList, StringBuilder currPath) {
 	        if (root == null) {
 	            return;
 	        }
@@ -39,11 +39,4 @@ public class BSTPaths {
 	        }
 	    }
 	    
-}
-
-class TreeNodeBSTSearch {
-    int val;
-    TreeNodeBSTSearch left;
-    TreeNodeBSTSearch right;
-    TreeNodeBSTSearch(int x) { val = x; }
 }

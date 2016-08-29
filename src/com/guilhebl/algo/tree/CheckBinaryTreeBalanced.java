@@ -2,7 +2,7 @@ package com.guilhebl.algo.tree;
 
 public class CheckBinaryTreeBalanced {
 
-	public static boolean isBalanced(BSTreeNode root) {
+	public static boolean isBalanced(TreeNode root) {
 		if (root == null) {
 			return true;
 		}
@@ -11,7 +11,7 @@ public class CheckBinaryTreeBalanced {
 		return h != -1;
 	}
 
-	public static int isBalancedUtil(BSTreeNode root) {
+	public static int isBalancedUtil(TreeNode root) {
 		if (root == null) {
 			return 0;
 		}
@@ -32,14 +32,4 @@ public class CheckBinaryTreeBalanced {
 		return 1 + Math.max(leftH, rightH);
 	}
 
-}
-
-class BSTreeNode {
-	int val;
-	BSTreeNode left;
-	BSTreeNode right;
-	public BSTreeNode(int val) {
-		super();
-		this.val = val;
-	}
 }

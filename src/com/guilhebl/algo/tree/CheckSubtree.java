@@ -11,14 +11,14 @@ identical.
  */
 public class CheckSubtree {
 
-	public static boolean isSubtree(TreeSampleNode t1, TreeSampleNode t2) {
+	public static boolean isSubtree(TreeNode t1, TreeNode t2) {
 		if (t2 == null) {
 			return true;
 		}
 		return isSubtreeValid(t1.left, t2.left);
 	}
 	
-	public static boolean isSubtreeValid(TreeSampleNode t1, TreeSampleNode t2) {
+	public static boolean isSubtreeValid(TreeNode t1, TreeNode t2) {
 		if (t1 == null) {
 			return false;
 		}
@@ -29,7 +29,7 @@ public class CheckSubtree {
 		return isSubtreeValid(t1.left, t2) || isSubtreeValid(t1.right, t2);
 	}
 
-	private static boolean isMatchingSubtree(TreeSampleNode t1, TreeSampleNode t2) {
+	private static boolean isMatchingSubtree(TreeNode t1, TreeNode t2) {
 		if (t1 == null && t2 == null) {
 			return true;
 		}
@@ -44,10 +44,4 @@ public class CheckSubtree {
 				isMatchingSubtree(t1.right, t2.right);
 	}
 	
-}
-
-class TreeSampleNode {
-	int val;
-	TreeSampleNode left;
-	TreeSampleNode right;
 }

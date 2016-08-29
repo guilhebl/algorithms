@@ -128,5 +128,4 @@ class TreeNodeEmp {
 		this.managerName = managerName;
 		children = new HashSet<>();
 	}
-
 }

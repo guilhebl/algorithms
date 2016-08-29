@@ -1,83 +1,50 @@
 package com.guilhebl.algo.combinatorics;
 
 /**
- * Find if a pattern matches given String:
- * 
-		isMatchPattern("abcddd", "abcd*"));
-		isMatchPattern("ccca", "c*a"));
-		isMatchPattern("ab", ".*"));
-		isMatchPattern("abcdefffffffg", "a*c..f*"));
-		isMatchPattern("fffffffgcdeeeeeee","f*g..e*")) = 
-		isMatchPattern("abc", "...e*"));
- * 
- * 
- * output:
- * 
- * Match true
-Match true
-Match true
-Match false
-Match true
-Match true
- * 
- * @author root
+	https://leetcode.com/problems/wildcard-matching/
+	https://leetcode.com/problems/regular-expression-matching/
  *
  */
 public class PatternMatcher {
 
 	public static void main(String[] args) {
-		 System.out.println("Match " + isMatchPattern("abcddd", "abcd*"));
-		 System.out.println("Match " + isMatchPattern("ccca", "c*a"));
-		 System.out.println("Match " + isMatchPattern("ab", ".*"));
-		 System.out.println("Match " + isMatchPattern("abcdefffffffg",
-		 "a*c..f*"));
-		 System.out.println("Match " + isMatchPattern("fffffffgcdeeeeeee",
-		 "f*g..e*"));
-		 System.out.println("Match " + isMatchPattern("abc", "...e*"));
+		 System.out.println(isMatch("abc", "..."));
 	}
 
-
-	public static boolean isMatchPattern(String s, String p) {
+    public static boolean isMatch(String s, String p) {
+		if ((s == null || p == null) 
+				|| (s.equals("") && !p.equals("") && !p.equals("*"))
+				|| (!s.equals("") && p.equals("")))
+			return false;
+        if (s.equals("") && p.equals("")) return true;
 
 		char[] cs = s.toCharArray();
 		char[] cp = p.toCharArray();
-
-		boolean inRep = false;
-		int i = 0, j = 0;
-
-		while (i < cs.length && j < cp.length) {
-			if (j + 1 < cp.length) {
-				if (cp[j + 1] == '*') {
-					inRep = true;
-				}
+		
+		int n = s.length();
+		int m = p.length();
+		
+		boolean dp[][] = new boolean[n + 1][m + 1];		
+		dp[0][0] = true;		
+				
+		for (int j = 1; j <= m; j++) {
+			if (cp[j-1] == '*') {
+				dp[0][j] = dp[0][j-1];					
 			}
-			if (cs[i] == cp[j] || cp[j] == '.') {
-				if (inRep && cp[j] != '.' && cp[j] != '*') {
-					while (i < cs.length && j < cp.length && cs[i] == cp[j]) {
-						i++;
-					}
-					j += 2;
-					inRep = false;
+		}
+		
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= m; j++) {
+				if (cp[j-1] == '*') {
+					dp[i][j] = dp[i][j-1] || dp[i-1][j];
+				} else if (cp[j-1] == '?' || cs[i-1] == cp[j-1]) {
+					dp[i][j] = dp[i-1][j-1];
 				} else {
-					i++;
-					j++;
-				}
-			} else {
-				if (inRep) {
-					i++;
-					j++;
-					inRep = false;
-				} else {
-					return false;
+					dp[i][j] = false;
 				}
 			}
 		}
 
-		if (i < cs.length) {
-			return false;
-		}
-
-		return true;
-	}
-
+		return dp[n][m];
+    }
 }

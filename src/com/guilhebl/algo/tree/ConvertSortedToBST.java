@@ -23,23 +23,23 @@ public class ConvertSortedToBST {
 		System.out.println(c.sortedListToBST(head));
 	}
 	
-    public TreeNodeCS sortedArrayToBST(int[] nums) {
+    public TreeNode sortedArrayToBST(int[] nums) {
     	if (nums == null) return null;
     	return convertToTreeNode(nums, 0, nums.length-1);        
     }
     
-	private TreeNodeCS convertToTreeNode(int[] nums, int l, int h) {
+	private TreeNode convertToTreeNode(int[] nums, int l, int h) {
 		if (l > h) {
 			return null;
 		}
 		int mid = l + ((h - l)/2);
-		TreeNodeCS root = new TreeNodeCS(nums[mid]);
+		TreeNode root = new TreeNode(nums[mid]);
 		root.left = convertToTreeNode(nums, l, mid-1);
 		root.right = convertToTreeNode(nums, mid+1, h);
 		return root;
 	}
 
-	public TreeNodeCS sortedListToBST(ListNode head) {
+	public TreeNode sortedListToBST(ListNode head) {
 		 if (head == null) {
 			 return null;
 		 }
@@ -48,16 +48,16 @@ public class ConvertSortedToBST {
 			 list.add(head.val);
 			 head = head.next;
 		 }		 		 
-		 TreeNodeCS root = insertNode(list, 0, list.size()-1);
+		 TreeNode root = insertNode(list, 0, list.size()-1);
 		 return root;
 	 }
 
-	private TreeNodeCS insertNode(List<Integer> list, int l, int h) {
+	private TreeNode insertNode(List<Integer> list, int l, int h) {
 		if (l > h) {
 			return null;
 		}
 		int mid = l + (h - l)/2;
-		TreeNodeCS t = new TreeNodeCS(list.get(mid));
+		TreeNode t = new TreeNode(list.get(mid));
 		t.left = insertNode(list, l, mid-1);
 		t.right = insertNode(list, mid+1, h);		
 		return t;
@@ -69,11 +69,4 @@ public class ConvertSortedToBST {
      int val;
      ListNode next;
      ListNode(int x) { val = x; }
- }
-
- class TreeNodeCS {
-     int val;
-     TreeNodeCS left;
-     TreeNodeCS right;
-     TreeNodeCS(int x) { val = x; }
  }
