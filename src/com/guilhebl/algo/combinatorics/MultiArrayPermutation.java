@@ -1,5 +1,9 @@
 package com.guilhebl.algo.combinatorics;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * 
  * Print all permutations of a String[][] matrix:
@@ -29,7 +33,7 @@ slow gray dog rex
 public class MultiArrayPermutation {
 
 	public static void main(String[] args) {
-		solveMultiPerms();
+		solveMultiPerms2();
 	}
 	
 	public static void solveMultiPerms() {
@@ -58,4 +62,37 @@ public class MultiArrayPermutation {
 		}
 	}
 
+	public static void solveMultiPerms2() {
+		String[][] sets = new String[][] { 
+				{ "quick", "slow" },
+				{ "brown", "red" }, 
+				{ "fox", "dog" } 
+				};
+					
+		List<List<String>> r = new ArrayList<List<String>>();
+		backtrack(r, sets, new LinkedList<String>(), 0);
+		
+		printLists(r);
+	}
+
+	private static void printLists(List<List<String>> r) {
+		for (List<String> list : r) {
+			for (String string : list) {
+				System.out.print(string + " ");
+			}
+			System.out.println();
+		}		
+	}
+
+	private static void backtrack(List<List<String>> strs, String[][] sets, LinkedList<String> list, int start) {
+		if (start == sets.length) {
+			strs.add(new ArrayList<>(list));
+		} else if (start < sets.length) {
+			for (int i = 0; i < sets[start].length; i++) {
+				list.addLast(sets[start][i]);				
+				backtrack(strs, sets, list, start + 1);
+				list.removeLast();								
+			}						
+		}		
+	}
 }

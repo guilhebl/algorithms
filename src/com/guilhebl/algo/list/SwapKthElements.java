@@ -8,30 +8,30 @@ package com.guilhebl.algo.list;
 public class SwapKthElements {
 
 	public static void main(String[] args) {
-		ListNode head = new ListNode(1);
-		head.next = new ListNode(2);
-		head.next.next = new ListNode(4);
-		head.next.next.next = new ListNode(5);
-		head.next.next.next.next = new ListNode(7);
-		head.next.next.next.next.next = new ListNode(8);
+		ListNodePartition head = new ListNodePartition(1);
+		head.next = new ListNodePartition(2);
+		head.next.next = new ListNodePartition(4);
+		head.next.next.next = new ListNodePartition(5);
+		head.next.next.next.next = new ListNodePartition(7);
+		head.next.next.next.next.next = new ListNodePartition(8);
 		head = swapKthElements(head, 2);
 		printList(head);
 	}
 	
-	private static void printList(ListNode head) {
-		ListNode n = head;
+	private static void printList(ListNodePartition head) {
+		ListNodePartition n = head;
 		while(n != null) {
 			System.out.print(n.val + " - ");
 			n = n.next;
 		}
 	}
 
-	public static ListNode swapKthElements(ListNode head, int k) {
+	public static ListNodePartition swapKthElements(ListNodePartition head, int k) {
 		int n = 0;
 		int i = 1; // start from head as index 1
 		
-		ListNode node = head;
-		ListNode node1 = null;
+		ListNodePartition node = head;
+		ListNodePartition node1 = null;
 		while (node != null) {
 			if (i == k) {
 				node1 = node;
@@ -42,7 +42,7 @@ public class SwapKthElements {
 		int i2 = i - k; // kth from last 
 		node = head;
 		i = 1;
-		ListNode node2 = null;
+		ListNodePartition node2 = null;
 		while(node != null) {
 			if (i == i2) {
 				node2 = node;
