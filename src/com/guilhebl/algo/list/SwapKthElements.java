@@ -27,7 +27,6 @@ public class SwapKthElements {
 	}
 
 	public static ListNodePartition swapKthElements(ListNodePartition head, int k) {
-		int n = 0;
 		int i = 1; // start from head as index 1
 		
 		ListNodePartition node = head;
@@ -57,12 +56,3 @@ public class SwapKthElements {
 		return head;
 	}
 }
-
-//class ListNode {
-//	int val;
-//	ListNode next;
-//	public ListNode(int val) {
-//		super();
-//		this.val = val;
-//	}
-//}

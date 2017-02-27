@@ -50,7 +50,7 @@ public class CountEmployeesHierarchyOrg {
 		dataSet.put("F", "F");
 
 		Map<String, TreeNodeEmp> empTreeNodeMap = new HashMap<>();
-		TreeNodeEmp root = buildHierarchyTreeOfCompany(dataSet, empTreeNodeMap);
+		buildHierarchyTreeOfCompany(dataSet, empTreeNodeMap);
 		Map<String, Integer> output = new HashMap<>();
 
 		for (Map.Entry<String, TreeNodeEmp> empEntry : empTreeNodeMap

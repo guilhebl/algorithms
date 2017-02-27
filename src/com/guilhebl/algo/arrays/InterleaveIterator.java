@@ -82,8 +82,10 @@ class Node {
 	}
 }
 
+
 public class InterleaveIterator<E> implements Iterator<E> {
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 		InterleaveIterator iter = new InterleaveIterator<>();		
 		

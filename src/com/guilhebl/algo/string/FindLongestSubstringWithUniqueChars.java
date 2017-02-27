@@ -9,7 +9,6 @@ import java.util.Set;
  * input: aabacbeabbed output: 4 (aaba) for 2 unique characters 6 (aabacb) for 3
  * unique characters
  * 
- * @author root
  *
  */
 public class FindLongestSubstringWithUniqueChars {

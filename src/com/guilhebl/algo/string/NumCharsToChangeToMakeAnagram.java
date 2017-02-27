@@ -3,8 +3,6 @@ package com.guilhebl.algo.string;
 
 /**
  * Get number of Chars to change in order to make an anagram out of String S.
- * 
- * @author root
  *
  */
 public class NumCharsToChangeToMakeAnagram {

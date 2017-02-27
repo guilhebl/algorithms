@@ -9,8 +9,6 @@ public class ShortestPalindrome {
 
 	public static void main(String[] args) {
 		System.out.println(shortestPalindrome("ab"));
-
-//		System.out.println(shortestPalindrome("abbacc"));
 	}
 
 	public static String shortestPalindrome(String s) {

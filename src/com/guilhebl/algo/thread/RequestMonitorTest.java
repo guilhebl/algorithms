@@ -2,23 +2,29 @@ package com.guilhebl.algo.thread;
 
 import java.util.Date;
 
+/**
+ * Tests a request monitor for mult-thread env.
+ * 
+ * the monitor will only enable 1 request to be done per thread for every X miliseconds
+ *
+ */
 public class RequestMonitorTest {
 
 	public static void main(String[] args) {
 		// Lambda Runnable
-		AmazonRunnable task1 = new AmazonRunnable("thread 1");
+		ThreadRequestRunnable task1 = new ThreadRequestRunnable("thread 1");
 		 
 		// start the thread
 		Thread t1 = new Thread(task1);
 
 		// Lambda Runnable
-		AmazonRunnable task2 = new AmazonRunnable("thread 2");
+		ThreadRequestRunnable task2 = new ThreadRequestRunnable("thread 2");
 		 
 		// start the thread
 		Thread t2 = new Thread(task2);
 
 		// Lambda Runnable
-		AmazonRunnable task3 = new AmazonRunnable("thread 3");
+		ThreadRequestRunnable task3 = new ThreadRequestRunnable("thread 3");
 		
 		// start the thread
 		Thread t3 = new Thread(task3);
@@ -40,11 +46,11 @@ public class RequestMonitorTest {
 	}
 }
 
-class AmazonRunnable implements Runnable {
+class ThreadRequestRunnable implements Runnable {
 	
 	String name;
 	
-	public AmazonRunnable(String name) {
+	public ThreadRequestRunnable(String name) {
 		super();
 		this.name = name;
 	}
@@ -54,49 +60,50 @@ class AmazonRunnable implements Runnable {
 		int maxCalls = 10;
 		
 		for(int i = 0; i < maxCalls; i++) {
-			callAmazon();			
+			callWebservice();			
 		}
 
 		System.out.println(name + " ***** Exiting! ***** ");
 	}
 	
-	public void callAmazon() {
+	public void callWebservice() {
 		int tries = 1;				
 		int maxTries = 10;
 		int threadSleepMilis = 400;
-		boolean proceed = AmazonRequestMonitor.getInstance().isRequestPossibleUnitedStates();
+		boolean proceed = RequestMonitor.getInstance().isRequestPossible();
 		while (!proceed && tries < maxTries) {						
-			System.out.println(name + " -> tentative to call Amazon AWS Product Advertising API blocked - wait for next period of " + threadSleepMilis + " miliseconds.");													
-			AmazonRequestMonitor.getInstance().threadSleepMilis(threadSleepMilis);
+			System.out.println(name + " -> tentative to call WEBSERVICE blocked - wait for next period of " + threadSleepMilis + " miliseconds.");													
+			RequestMonitor.getInstance().threadSleepMilis(threadSleepMilis);
 			tries++;
-			proceed = AmazonRequestMonitor.getInstance().isRequestPossibleUnitedStates();
+			proceed = RequestMonitor.getInstance().isRequestPossible();
 		}
 		
 		if (tries >= maxTries) {
-			System.out.println(name + " -> tentative to call Amazon AWS Product Advertising API failed - max tries limit reached!");
+			System.out.println(name + " -> FAILED to call WEBSERVICE - max tries limit reached!");
+			return;
 		}
 		
-		System.out.println(name + " -> called Amazon");
+		System.out.println(name + " -> called WEBSERVICE");
 	}
 
 }
 
-class AmazonRequestMonitor {
+class RequestMonitor {
 
 	private long lastCall;
 	private Integer waitIntervalMilis;
 	
-	private static AmazonRequestMonitor instance;
+	private static RequestMonitor instance;
 	
-	private AmazonRequestMonitor() {		
-		waitIntervalMilis = 950;
+	private RequestMonitor() {		
+		waitIntervalMilis = 950; // wait almost 1 second - 950 mls
 		lastCall = new Date().getTime();
 	}
 	
-	public static AmazonRequestMonitor getInstance() {
+	public static RequestMonitor getInstance() {
 		if (instance == null) 
 		{
-			instance = new AmazonRequestMonitor();
+			instance = new RequestMonitor();
 		}
 		return instance;
 	}
@@ -109,7 +116,7 @@ class AmazonRequestMonitor {
 	 * 
 	 * @return
 	 */
-	public synchronized boolean isRequestPossibleUnitedStates() {
+	public synchronized boolean isRequestPossible() {
 		long now = new Date().getTime();
 		if (now - lastCall >= waitIntervalMilis) {
 			lastCall = now;

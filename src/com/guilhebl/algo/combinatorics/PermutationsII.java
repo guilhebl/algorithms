@@ -27,7 +27,7 @@ public class PermutationsII {
 
 	public static List<List<Integer>> permuteUnique(int[] nums) {
 		Arrays.sort(nums);
-		List<List<Integer>> r = new ArrayList<>();;
+		List<List<Integer>> r = new ArrayList<>();
 		backtrack(r, new ArrayList<Integer>(), nums, new boolean[nums.length]);
 		return r;
 	}

@@ -12,21 +12,8 @@ import java.util.Set;
  */
 public class PalindromePairs {
 	
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {		
 		System.out.println(isPalindrome("aaa.@#$%!@#!@#!$.....,::://aaa"));
-//		
-//		String[] words = {"abcd","dcba","lls","s","sssll"};
-//		List<List<Integer>> r = palindromePairs(words);
-//		
-//		
-//		for (List<Integer> list : r) {
-//			System.out.print("[");			
-//			for (Integer integer : list) {
-//				System.out.print(integer + ",");
-//			}
-//			System.out.print("]");
-//		}
 	}
 	
 	    public static List<List<Integer>> palindromePairs(String[] words) {

@@ -11,9 +11,6 @@ public class RemoveDuplicateLetters {
 
 	public static void main(String[] args) {
 		System.out.println(removeDuplicateLetters("bcabc"));	
-//		System.out.println(removeDuplicateLetters("cbacdcbc"));
-//		
-//		System.out.println(removeDuplicateLetters("abcdefg"));
 	}
 	
 	// bcabc - abc

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SubGroupCombination {
-
 	 
 	//Driver program
 	public static void main(String args[]) {
@@ -13,10 +12,6 @@ public class SubGroupCombination {
 	    mapChars.put(2, "abcd");
 	    mapChars.put(3, "def");
 	    mapChars.put(4, "ghi");	    
-	    
-//	    printWords(number, mapChars);
-	    
-	    char c[] = {'C', 'B', 'A'};	  
 	    Map<Character, Integer[]> mapInts = new HashMap<>();
 	    Integer[] arr = new Integer[3];
 	    arr[0] = 1;
@@ -33,9 +28,6 @@ public class SubGroupCombination {
 	    arr[1] = 8;
 	    arr[2] = 9;
 	    mapInts.put('A', arr);
-	    
-	    //printInts(c, mapInts);
-	    
 	    printCombos(number, mapChars);
 	}
 

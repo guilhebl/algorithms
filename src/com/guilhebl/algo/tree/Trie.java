@@ -8,8 +8,6 @@ import java.util.Map;
 /**
  * A Trie implementation in Java.
  * 
- * @author root
- *
  */
 public class Trie {
 

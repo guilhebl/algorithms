@@ -28,7 +28,7 @@ public class ProblemSets {
 		long maxSet = 0;
 		long maxE = 0 , maxM = 0, maxH = 0;
 		long rest = 0;
-		long diffEM, diffMH, restEM, restMH;
+		long diffEM, diffMH;
 		
 		// if all equal
 		if(E == EM && EM == M && M == MH && MH == H) {
@@ -41,8 +41,7 @@ public class ProblemSets {
 			diffEM = Math.abs(E - M);
 			diffMH = Math.abs(M - H);
 			
-			// distribute E - M			
-			restEM = diffEM < EM ? diffEM : EM;
+			// distribute E - M
 			long iEM = 0;
 			
 			// start adding diff
@@ -57,7 +56,6 @@ public class ProblemSets {
 
 			// once equated E and M distribute MH
 			// distribute M - H
-			restMH = diffMH < MH ? diffMH : EM;
 			long iMH = 0;
 			
 			// start adding diff

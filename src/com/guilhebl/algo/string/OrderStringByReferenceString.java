@@ -8,7 +8,6 @@ import java.util.List;
  *   String O contains characters (none of them repeated) which defines the order/precendence
  *   to be used while reordering the string T. Write an algorithm to do the reordering.
  *   
- * @author root
  *
  */
 public class OrderStringByReferenceString {

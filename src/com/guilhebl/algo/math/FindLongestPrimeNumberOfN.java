@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Find longest Prime number Of N
- * @author root
  *
  */
 public class FindLongestPrimeNumberOfN {

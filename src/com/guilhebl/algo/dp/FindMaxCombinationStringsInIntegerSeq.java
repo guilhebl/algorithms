@@ -20,7 +20,6 @@ Z = "25"
 Write an algorithm to determine how many strings of letters we can make with S, 
 by converting from numbers to letters.
 
- * @author root
  *
  */
 public class FindMaxCombinationStringsInIntegerSeq {

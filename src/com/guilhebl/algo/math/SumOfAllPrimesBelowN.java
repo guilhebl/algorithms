@@ -2,8 +2,6 @@ package com.guilhebl.algo.math;
 
 /**
  * Find sum of all prime numbers below N
- * @author root
- *
  */
 public class SumOfAllPrimesBelowN {
 

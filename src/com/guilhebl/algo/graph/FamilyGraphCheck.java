@@ -33,8 +33,6 @@ import java.util.List;
  * Node 3: 0,2 - YES -> But Node 2 must be of same sex that Node 1 since both have a child with Node 0. ( 0 - Male, 1 -Female, 2 - Female ) or ( 0 - Female, 1 - Male, 2 - Male)
  * Node 4: 1,2 - NO -> Since Node 2 must be of same sex of Node 1 then these aren't possible parents.
  * 
- * @author root
- *
  */
 public class FamilyGraphCheck {
 

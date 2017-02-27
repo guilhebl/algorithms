@@ -1,7 +1,5 @@
 package com.guilhebl.algo.combinatorics;
 
-import java.util.Stack;
-
 /**
 	https://leetcode.com/problems/regular-expression-matching/
  *

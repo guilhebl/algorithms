@@ -11,8 +11,6 @@ import java.util.List;
 public class PalindromePartitions {
 
 	public static void main(String[] args) {
-		//printList(partition("aab"));
-		
 		System.out.println(isPalindrome("aA"));
 	}
 	

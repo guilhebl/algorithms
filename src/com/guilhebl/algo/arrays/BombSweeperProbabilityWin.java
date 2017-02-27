@@ -59,7 +59,7 @@ public class BombSweeperProbabilityWin {
 		}
 
 		double percWin = 0.0D;
-		int countBomb = 0, countEmptySpaces = 0, countEmptySpacesNBomb = 0;
+		int countBomb = 0, countEmptySpaces = 0;
 		char[][] boardMatrix = new char[board.length][board[0].length()];
 		for (int i = 0; i < board.length; i++) {
 			char[] charsI = board[i].toCharArray();
@@ -75,8 +75,6 @@ public class BombSweeperProbabilityWin {
 				cellType = findCellType(boardMatrix, i, j);
 				if (cellType == 1) {
 					countEmptySpaces++;
-				} else if (cellType == 2) {
-					countEmptySpacesNBomb++;
 				} else if (cellType == 3) {
 					countBomb++;
 				} else {

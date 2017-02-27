@@ -8,7 +8,6 @@ import java.util.Set;
 /**
  * Prim's Minimum Spanning Tree algorithm 
  * 
- * @author root
  *
  */
 public class MinSpanningTreePrim {

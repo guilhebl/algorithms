@@ -34,13 +34,6 @@ public class ReconstructItinerary {
 	};
 	
 	public void runSample() {
-//		List<Itinirary> list = new ArrayList<>();				
-//		list.add(new Itinirary("MUC", "LHR"));
-//		list.add(new Itinirary("JFK", "MUC"));
-//		list.add(new Itinirary("SFO", "SJC"));
-//		list.add(new Itinirary("LHR", "SFO"));
-	
-//		List<String> r = getOrderedList(list);
 		String[][] it = {				
 				{"MUC", "LHR"}, 
 				{"JFK", "MUC"}, 
@@ -73,7 +66,6 @@ public class ReconstructItinerary {
 		String src = "JFK";
 		String dest = null;
 		boolean found = false;
-		//l.sort(new ItineraryComparator());
 		r.add(src);
 		int usedTicketsCount = 0;
 		int j = 0;
