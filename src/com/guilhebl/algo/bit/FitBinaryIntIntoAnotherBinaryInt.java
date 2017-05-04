@@ -86,7 +86,7 @@ public class FitBinaryIntIntoAnotherBinaryInt {
 			StringBuilder sb = new StringBuilder();
 
 			 while(n > 0) {
-			  if ( (n & 1) == 1) {
+			  if ((n & 1) == 1) {
 			   sb.append("1");
 			  } else {
 			   sb.append("0");
