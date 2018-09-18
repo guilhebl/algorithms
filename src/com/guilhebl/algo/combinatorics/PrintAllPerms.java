@@ -10,8 +10,10 @@ import java.util.List;
  */
 public class PrintAllPerms {
 
-	public static void main(String[] args) {		
-		printAllStringCombinations("abc".toCharArray(), 3);
+	public static void main(String[] args) {
+
+
+		printAllSubsets("word");
 	}
 	
 	public static void printAllPermsGroups(String s) {
